@@ -27,14 +27,6 @@ Projeto Web desenvolvido para o controle de caderneta vacinal de crianças, adol
 
 * Luciana de Nardin
 
-## Instruções de utilização
-
-URL de acesso:
-
-[Link](https://app-imuniti-main-cjbfczh7d9ahf7h0.brazilsouth-01.azurewebsites.net/)
-
-Usuario de Teste
-Email: teste@teste.com Senha: 12345678
 
 # Documentação
 
@@ -58,6 +50,3 @@ Email: teste@teste.com Senha: 12345678
 
 <li><a href="src/README.md"> Código Fonte</a></li>
 
-# Apresentação
-
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
