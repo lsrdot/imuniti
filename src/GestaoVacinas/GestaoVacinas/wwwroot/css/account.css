@@ -1,0 +1,28 @@
+﻿/* Importação da fonte Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.account-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    background-color: #F5F7F8; /*Cor de fundo do container, de uma ponta a poutra*/
+    display: flex;
+    justify-content: center; 
+    padding: 2rem 0;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif; /* Garantir a fonte aqui também */
+}
+
+.account-box {    
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    opacity: 0.9;
+    font-family: 'Open Sans', sans-serif; /* Aplicar fonte no conteúdo da caixa */
+}
+

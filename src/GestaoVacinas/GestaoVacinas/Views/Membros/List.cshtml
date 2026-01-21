@@ -1,0 +1,91 @@
+﻿@{
+}
+
+@model List<GestaoVacinas.Models.Membros>
+
+<html lang="pt-BR">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: 'Open Sans', sans-serif;">
+    <!-- Container principal para imagem e frase -->
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <img src="~/images/gerenciar-img.svg" alt="Gerenciar membros" class="img-fluid cadastro-membro-img">
+            </div>
+            <div class="col-md-6 text-md-start text-center mt-5">
+                <h1 class="mb-3 fw-bold" style="color: #587EFD;">Gerencie seus<br />membros.</h1>
+                <p class="mb-4 fs-6">Faça a edição dos dados dos membros cadastrados.</p>
+
+            </div>
+        </div>
+    </div><br />
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Apelido</th>
+                <th>Nome Completo</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>Cartão Nacional de Saúde</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var membro in Model)
+            {
+                <tr>
+                    <td>@membro.Apelido</td>
+                    <td>@membro.NomeCompleto</td>
+                    <td>@membro.DataNascimento?.ToString("dd/MM/yyyy")</td>
+                    <td>@membro.Cpf</td>
+                    <td>@membro.Cns</td>
+                    <td class="text-center">
+                        <!-- Ícone de três pontinhos para abrir opções -->
+                        <a href="#" data-bs-toggle="dropdown" aria-expanded="false" class="action-icon">
+                            <i class="bi bi-three-dots"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="Membros"
+                                   asp-action="Edit"
+                                   asp-route-id="@membro.Id">
+                                    Editar
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center mt-3">
+        <a asp-controller="Home" asp-action="Index" class="text-black text-decoration-underline">Voltar</a>
+    </div>
+
+    <!-- Modal de Confirmação para Deletar -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza de que deseja excluir este membro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a id="confirmDeleteButton" class="btn btn-danger" href="#">Confirmar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   </body>
+</html>

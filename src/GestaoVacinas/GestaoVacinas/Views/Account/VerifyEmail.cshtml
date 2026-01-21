@@ -1,0 +1,65 @@
+﻿@using GestaoVacinas.ViewModels;
+@model VerifyEmailViewModel
+
+@{
+    ViewData["Title"] = "Verificar Email";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Email</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+
+<body>
+    <!-- Container principal para imagem e frase -->
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <img src="~/images/senha-img.svg" alt="Verificar Email" class="img-fluid senha-img">
+            </div>
+            <div class="col-md-6 text-md-start text-center mt-5">
+                <h1 class="mb-3 fw-bold" style="color: #587EFD;">Esqueceu sua senha?</h1>
+                <h3 class="mb-4 fs-6">Digite seu e-mail e em instantes você terá acesso <br>para criar uma nova senha.</h3>
+            </div>
+        </div>
+    </div>
+    <br />
+    <!-- Container do box cinza -->
+    <div class="box mt-5">
+        <!-- Container para centralizar o formulário -->
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form asp-action="VerifyEmail" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control border border-primary" placeholder="nome@email.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <input type="submit" value="Recuperar senha" class="btn btn-primary rounded-4" style="background-color:#587EFD; border-radius: 100px; width: 50%;" />
+                        </div>
+                    </form>
+
+                    <div class="text-center">
+                        <a asp-controller="Home" asp-action="Index" class="text-decoration-underline mt-3" style="color: black;">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
+</body>
+</html>

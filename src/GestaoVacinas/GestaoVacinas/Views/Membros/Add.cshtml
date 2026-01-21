@@ -1,0 +1,84 @@
+@{
+ViewData["Title"] = "Adicionar Membro";
+}
+@model GestaoVacinas.ViewModels.AddMembrosViewModel
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: 'Open Sans', sans-serif;">
+<!-- Container principal para imagem e frase -->
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="~/images/cadmembro-img.svg" alt="Cadastro de Membro" class="img-fluid cadastro-membro-img">
+        </div>
+        <div class="col-md-6 text-md-start text-center mt-5">
+            <h1 class="mb-3 fw-bold" style="color: #587EFD;">Cadastre um novo<br />membro.</h1>
+            <p class="mb-4 fs-6">Facilitamos o controle de suas vacinas para que você cuide<br />do que mais importa: sua saúde.</p>
+        </div>
+    </div>
+</div>
+
+<form method="post">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="box mt-5">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="mt-3">
+                        <label class="form-label">Apelido</label>
+                        <input type="text" class="form-control border-primary" placeholder="Digite um apelido" asp-for="Apelido" />
+                        @Html.ValidationMessageFor(model => model.Apelido, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label">Nome completo</label>
+                        <input type="text" class="form-control border-primary" placeholder="Digite o nome completo" asp-for="NomeCompleto" />
+                        @Html.ValidationMessageFor(model => model.NomeCompleto, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label">Data de nascimento</label>
+                        <input type="date" class="form-control border-primary" asp-for="DataNascimento" />
+                        @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
+                        <small class="text-muted">Atenção: a data de nascimento não poderá ser alterada posteriormente.</small>
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label">CPF</label>
+                        <input type="text" class="form-control border-primary" id="cpf" placeholder="XXX.XXX.XXX-XX" asp-for="Cpf" />
+                        @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label">Cartão Nacional de Saúde (CNS)</label>
+                        <input type="text" class="form-control border-primary" placeholder="XXXXXXXXXXXXXXX" asp-for="Cns" />
+                        @Html.ValidationMessageFor(model => model.Cns, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btn-primary rounded-4" style="background-color: #587EFD; border-radius: 100px; width: 207px;">Cadastrar membro</button>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3">
+                        <a asp-controller="Home" asp-action="Index" class="text-black text-decoration-underline">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#cpf').mask('000.000.000-00'); // Máscara para CPF
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+cff-version: 1.0.1
+message: Sistema para gestão da caderneta de vacinas.
+title: Imuniti
+authors:
+  - family-names: Rodrigues de Souza
+    given-names: Alberto Mario
+  - family-names: Santos Félix
+    given-names: Carolina 
+  - family-names: Nicolau Ferreira
+    given-names: Felipe
+ - family-names: Rovina Gonçalves
+    given-names: Gilson Rodrigo
+ - family-names: Siqueira Ribeiro
+    given-names: Lucas
+ - family-names: Ramires de Araújo
+    given-names: Ryan
+  - name-suffix: Professora
+    affiliation: PUC Minas
+    family-names: De Nardin
+    given-names: Luciana
+keywords:
+  - vacina
+  - saúde
+  - caderneta
+  - vacinação
+  - cartão de vacinas
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-2-e2-proj-int-t5-gestao_vacinas
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2024-12-08

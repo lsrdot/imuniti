@@ -1,0 +1,81 @@
+﻿@using GestaoVacinas.ViewModels;
+@model LoginViewModel;
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+}
+
+<!-- Link para a fonte Open Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+
+<body style="font-family: 'Open Sans', sans-serif;">
+    <!-- Container principal para imagem e frase -->
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+            <img src="~/images/login-img.svg" alt="Login" class="img-fluid login-img">
+            </div>
+            <div class="col-md-6 text-md-start text-center mt-5">
+            <h1 class="mb-3 fw-bold" style="color: #587EFD;">Faça seu login</h1>
+            <p class="mb-4 fs-6">Conecte-se e veja o que preparamos para você!</p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <!-- Container do box cinza -->
+    <div class="box mt-5">
+    <!-- Container para centralizar os formulários-->
+     <div class="container mt-5">
+            <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form asp-action="Login" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control border border-primary" placeholder="nome@email.com" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Senha" class="form-label">Senha</label>
+                        <input asp-for="Senha" class="form-control border border-primary" type="password" placeholder="senha" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+
+                    <div class="float-end">
+                        <a asp-controller="Account" asp-action="VerifyEmail" class="text-decoration-none">
+                            Esqueci minha senha
+                        </a>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <label class="form-check-label">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <input type="submit" value="Entrar" class="btn btn-primary rounded-4" style="background-color:#587EFD; border-radius: 100px; width: 50%;"/>
+                   </div>
+
+                    <p class="text-center mt-2">
+                        Não possui uma conta? <a asp-controller="Account" asp-action="Register" class="text-decoration-none">Cadastre-se</a>
+                    </p>
+
+                    <div class="text-center">
+                        <a asp-controller="Home" asp-action="Index" class="text-decoration-underline mt-3" style="color: black;">Voltar</a>
+                    </div>
+                </form>
+           </div>
+        </div>
+     </div>
+</body>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+

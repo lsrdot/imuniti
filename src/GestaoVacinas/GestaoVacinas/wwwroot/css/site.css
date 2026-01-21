@@ -1,0 +1,217 @@
+html {
+  font-size: 14px;
+    font-family: Open Sans, sans-serif; !important;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+:root {
+    /*Cores Prim�rias*/
+    --ciano: #34d6a0;
+    --verde-claro: #7dda58;
+    --verde-escuro: #28b451;
+    --azul: #587efd;
+    --azul-claro: #d3e8fb;
+    
+    /*Cores Secund�rias*/
+    --preto: #000000;
+    --cinza: #f5f7f8;
+    --branco: #FFFFFF;
+    --azul-marinho: #031432;
+    --vermelho: #d73838
+}
+
+.nav-logo {
+    width: 200px;
+    margin: 0 0 20px 30px;
+}
+
+.navbar {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+
+.nav-link {
+    font-family: Open Sans, sans-serif !important;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--azul-marinho) !important;
+    text-decoration: none;
+}
+
+.link-hover {
+    color: var(--azul-marinho) !important;
+    text-decoration: none !important;
+    transition: color .3s ease;
+}
+
+.link-hover:hover {
+    color: var(--ciano) !important;
+}
+
+.link-hover-danger {
+    color: var(--azul-marinho) !important;
+    text-decoration: none !important;
+    transition: color .3s ease;
+}
+
+.link-hover-danger:hover {
+    color: var(--vermelho) !important;
+}
+
+.margem-coluna {
+    margin: 50px 0 50px 0;
+}
+
+.titulo-main {
+    color: var(--azul);
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: justify;
+    
+}
+
+.texto-main {
+    color: var(--azul-marinho);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration: none;
+    margin-bottom: 100px;
+    text-align: justify;
+}
+
+.btn-cadastro {
+    background-color: var(--ciano);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(65, 132, 247, 0.24);
+    border: 5px solid var(--ciano);
+    border-radius: 100px;
+    padding: 16px 28px 16px 28px;
+    gap: 10px;
+    width: 300px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Open Sans, sans-serif !important;
+    margin-bottom: 200px;
+    
+}
+
+.text-dark {
+    color: var(--azul-marinho) !important;
+}
+
+.box {
+    background-color: #f5f7f8;
+    padding: 1rem 1rem 1rem 1rem;
+    position: relative;
+    left: 50%; 
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    justify-content: center;
+}
+
+
+    .table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Arredondar bordas */
+    overflow: hidden; /* Evitar que conteúdo saia dos cantos aredondados */
+}
+
+.table thead tr {
+    background-color: #587EFD;
+    color: white;
+    font-weight: bold;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Adiciona borda nas células */
+}
+
+.table thead th:first-child {
+    border-top-left-radius: 15px; 
+}
+
+.table thead th:last-child {
+    border-top-right-radius: 15px; 
+}
+
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 15px; 
+}
+
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 15px; 
+}
+
+ /* Alinhamento centralizado da coluna de ações */
+.table td.text-center {
+    text-align: center;
+}
+
+/* Estilo para o ícone de três pontinhos */
+.action-icon {
+    font-size: 18px;
+    cursor: pointer;
+    color: #34D6A0;
+}
+
+.action-icon:hover {
+     color: #587EFD; /* Cor ao passar o mouse */
+ }
+
+.dropdown-menu {
+    min-width: 150px;
+    border-radius: 10px !important;
+    text-align: center;
+}
+
+
+.bg-success, .bg-warning, .bg-danger, .bg-secondary {
+    border-radius: 100px; /* Arredondar os cantos dos status */
+    width: 141px;
+    height: 27px;
+    padding: 7px 10px;
+    font-size: 15px;
+}
+
+.modal-content {
+    border-radius: 20px !important; /* Arredondar bordar modal */
+}
+
+.list-group {
+    border-radius: 20px !important;
+}
+
+.footer {
+    border-top: none !important;
+    box-shadow: none !important;
+}

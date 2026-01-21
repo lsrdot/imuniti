@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<Users> SignInManager;
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <ul class="navbar-nav ms-auto d-sm-flex">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark link-hover" asp-controller="Account" asp-action="EditUser">Gerenciar Usuário</a>
+        </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark link-hover" asp-controller="Membros" asp-action="Add">Cadastrar Membro</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark link-hover" asp-area="" asp-controller="Membros" asp-action="List">Gerenciar Membros</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark link-hover-danger" asp-controller="Account" asp-action="Logout">Sair</a>
+    </li>
+    }
+    else
+    {
+    <li class="nav-item">
+        <a class="nav-link text-dark link-hover" asp-controller="Account" asp-action="Login">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark link-hover" asp-controller="Account" asp-action="Register">Cadastre-se</a>
+    </li>
+    }
+</ul>

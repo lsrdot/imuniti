@@ -1,0 +1,22 @@
+﻿@model IEnumerable<GestaoVacinas.Models.Caderneta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Container principal para imagem e frase -->
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="~/images/excluir-img.svg" alt="Cadastro de Membro" class="img-fluid cadastro-membro-img">
+        </div>
+        <div class="col-md-6 text-md-start text-center mt-5">
+            <h1 class="mb-3 fw-bold" style="color: #587EFD;">Caderneta excluída.</h1>
+        </div>
+    </div>
+</div><br /><br />
+    <div class="d-flex justify-content-center mt-3">
+        <a asp-controller="Home" asp-action="Index" class="text-black text-decoration-underline">Voltar para a página principal</a>
+    </div>
+  
+

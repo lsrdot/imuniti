@@ -1,0 +1,115 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Users> SignInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center mt-5">
+                <img src="~/images/home-img.svg" alt="Ilustração index" class="img-fluid">
+            </div>
+            <div class="col-md-6 text-left">
+                <h1 class="mb-3 fw-bold" style="color: #587EFD;">A melhor solução para<br /> gerenciar suas vacinas<br /> em poucos cliques!</h1><br />
+                <p class="mb-4 fs-6">Facilitamos o controle de suas vacinas para que você cuide<br /> do que mais importa: sua saúde</p><br />
+                <button type="button" class="btn btn-primary btn-cadastro"  data-bs-toggle="modal" data-bs-target="#selecionarMembroModal">
+                    Selecionar membro
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+                
+    <div class="modal fade" id="selecionarMembroModal" tabindex="-1" aria-labelledby="selecionarMembroModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="selecionarMembroModalLabel">Selecione um Membro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    @if (ViewBag.Membros is IEnumerable<GestaoVacinas.Models.Membros> membros && membros.Any()) {
+                        <ul class="list-group">
+                            @foreach (var membro in membros) {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    @membro.Apelido
+                                    <a href="@Url.Action("Details", "Cadernetas", new { id = membro.Caderneta.Id })" class="btn btn-primary rounded-4" style="background-color: #587EFD; border-radius: 100px; border: none;">
+                                        Ver caderneta
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    } else {
+                        <p class="text-muted">Nenhum membro disponível.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <h1 class="mb-3 fw-bold" style="color: #587EFD;">Facilidade e segurança para garantir a imunidade de quem você ama.</h1><br/>
+                <p class="mb-4 fs-6">Imunidade reforçada é uma questão de cuidado. Crie sua conta e comece a gerenciar todas as vacinas em um só lugar de forma rápida e eficiente.</p><br/>
+                <a href="@Url.Action("Register", "Account")" class="btn btn-primary rounded-4" style="background-color: #587EFD; border-radius: 100px; width: 207px;">Criar conta</a>
+                <p class="mt-3">Já possui conta? <a href="@Url.Action("Login", "Account")" class="text-decoration-underline">Entrar</a></p>
+            </div>
+            <div class="col-md-6 text-center mt-5">
+                <img src="~/images/img-index.svg" alt="Ilustração index" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="~/images/img-card01.svg" class="card-img-top" alt="...">
+                    <div class="card-body ">
+                        <h5 class="card-title">Gerenciar a caderneta</h5>
+                        <p class="card-text">Crie e preencha com facilidade a caderneta de vacinação sua e de seus familiares.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="~/images/img-card02.svg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerar relatório</h5>
+                        <p class="card-text">Crie um PDF com todas as informações da caderneta e faça a impressão dela.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="~/images/img-card03.svg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Status da vacina</h5>
+                        <p class="card-text">O sistema mostrará o status de cada vacina: aplicada, atrasada ou futura.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container-fluid vh-80 d-flex">
+
+    <div class="row w-100">
+        <h3 class="text-center titulo-main" style="margin-top: 30px;">Encontre a Unidade Básica de Saúde mais próxima de você!</h3>
+        <div id="map" style="width: 100%; height: 400px; margin-bottom: 50px"></div>
+
+    </div>
+
+
+    <script src="js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=inserir api do gmaps aq&callback=initMap" async defer></script>
+
+</div>
